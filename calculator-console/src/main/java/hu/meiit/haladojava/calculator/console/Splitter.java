@@ -11,8 +11,8 @@ public class Splitter {
         this.input = readerWriter.readFromConsole();
     }
 
-    Exception tooLong = new Exception("It's too long");
-    Exception justString = new Exception("It's just a string");
+    static final Exception tooLong = new Exception("It's too long");
+    static final Exception justString = new Exception("It's just a string");
 
     public String[] splitWithSpace() throws Exception {
         if (input.contains(" ")) {
@@ -39,7 +39,7 @@ public class Splitter {
             return splitWithoutSpace(Operator.DIVISION);
         }
 
-        throw justString;
+        throw Splitter.justString;
     }
 
     private String[] splitWithoutSpace(Operator operator) throws Exception {
@@ -49,6 +49,6 @@ public class Splitter {
             return new String[]{splitString[0], operator.getSymbol(), splitString[1]};
         }
 
-        throw tooLong;
+        throw Splitter.tooLong;
     }
 }

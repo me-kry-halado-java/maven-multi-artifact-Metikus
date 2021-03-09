@@ -7,7 +7,7 @@ public class MathExpression {
     private final double op1;
     private final double op2;
     private final String operator;
-    Exception notImplementedOperator = new Exception("It's an operation which did not have any implement");
+    static final Exception notImplementedOperator = new Exception("It's an operation which did not have any implement");
 
     public MathExpression(double op1, double op2, String operator) {
         this.op1 = op1;
@@ -33,7 +33,7 @@ public class MathExpression {
                     return String.valueOf(op1 / op2);
                 }
             default:
-                throw notImplementedOperator;
+                throw MathExpression.notImplementedOperator;
         }
     }
 }
